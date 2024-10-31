@@ -62,7 +62,7 @@ runs:
   using: "composite"
   steps:
     - name: Checkout builder repository
-      uses: slsa-framework/slsa-github-generator/.github/actions/secure-builder-checkout@v2.0.0
+      uses: Kong/slsa-github-generator/.github/actions/secure-builder-checkout@v2.0.0
       with:
         repository: ${{ inputs.repository }}
         ref: ${{ inputs.ref }}
@@ -76,7 +76,7 @@ runs:
         token: ${{ inputs.token }}
 
     - name: Set up Go environment
-      uses: actions/setup-go@93397bea11091df50f3d7e59dc26a7711a8bcfbe # v4.1.0
+      uses: actions/setup-go@41dfa10bad2bb2ae585af6ee5bb4d7d973ad74ed # v5
       with:
         go-version: ${{ inputs.go-version }}
 
@@ -84,7 +84,7 @@ runs:
       shell: bash
       env:
         # Builder.
-        BUILDER_REPOSITORY: slsa-framework/slsa-github-generator # The repository to download the pre-built builder binary from.
+        BUILDER_REPOSITORY: Kong/slsa-github-generator # The repository to download the pre-built builder binary from.
         BUILDER_RELEASE_BINARY: "${{ inputs.binary }}" # The name of the pre-built binary in the release assets. This is also used as the final binary name when compiling the builder from source.
         # Verifier
         # NOTE: These VERIFIER_* variables are used in the builder-fetch.sh script for verification of builder
