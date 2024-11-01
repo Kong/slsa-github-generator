@@ -60,7 +60,7 @@ runs:
 
     - name: Upload the artifact
       id: upload
-      uses: Kong/slsa-github-generator/.github/actions/secure-upload-artifact@v2.0.0
+      uses: Kong/slsa-github-generator/.github/actions/secure-upload-artifact@v2_node20
       with:
         name: "${{ inputs.name }}"
         path: "${{ steps.create.outputs.tarball-path }}"
